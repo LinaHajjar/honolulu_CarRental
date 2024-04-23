@@ -1,5 +1,5 @@
-Toyota ; aygo ; benzin ; ABC123 ; 2022-01-01 ; 20000,0 ; God stand ; true ; true ; true ; 5 ;
-Ford ; fiesta ; benzin ; XYZ456 ; 2021-03-15 ; 30000,0 ; Ny ligt serviceret ; true ; true ; false ; 5 ;
-Volkswagen ; polo ; diesel ; DEF789 ; 2023-05-10 ; 25000,0 ; Pålidelig ; false ; true ; false ; 5 ;
-Honda ; civic ; hybrid ; QRS101 ; 2020-08-20 ; 40000,0 ; Miljøvenlig ; true ; true ; false ; 5 ;
-Nissan ; micra ; benzin ; LMN202 ; 2022-11-05 ; 15000,0 ; konomisk køretøj ; false ; true ; false ; 5 ;
+Toyota ; aygo ; benzin ; ABC123 ; 2022-01-01 ; 20000 ; God stand ; false ; true ; false ; 5 ;
+Ford ; fiesta ; benzin ; XYZ456 ; 2021-03-15 ; 30000 ; Ny ligt serviceret ; true ; true ; false ; 5 ;
+Volkswagen ; polo ; diesel ; DEF789 ; 2023-05-10 ; 25000 ; Pålidelig ; false ; true ; false ; 5 ;
+Honda ; civic ; hybrid ; QRS101 ; 2020-08-20 ; 40000 ; Miljøvenlig ; true ; true ; false ; 5 ;
+Nissan ; micra ; benzin ; LMN202 ; 2022-11-05 ; 15000 ; konomisk køretøj ; false ; true ; false ; 9 ;

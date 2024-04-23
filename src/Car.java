@@ -31,6 +31,6 @@ public class Car {
     }
 
     public String toString() {
-        return (brand + ";" + model + ";" + fuelType + ";" + registrationNb + ";" + firstRegistrationDate + ";" + odometer + ";" +  Description + ";" +  automaticTransmission + ";" + AC + ";" + borrowed+ ";" + seats + ";");
+        return (brand + " ; " + model + " ; " + fuelType + " ; " + registrationNb + " ; " + firstRegistrationDate + " ; " + odometer + " ; " +  Description + " ; " +  automaticTransmission + " ; " + AC + " ; " + borrowed+ " ; " + seats + " ; ");
     }
 }

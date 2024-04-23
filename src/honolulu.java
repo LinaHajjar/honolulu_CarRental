@@ -8,24 +8,23 @@ public class honolulu {
 
         Scanner scan=new Scanner(new File("src/Cars List"));
         ArrayList <Car> listOfCars = readFromFile(scan);
-        System.out.println("brand: "+listOfCars.getFirst().brand);
-        System.out.println("model: "+listOfCars.getFirst().model);
-        System.out.println("fueltype:"+listOfCars.getFirst().fuelType);
-        System.out.println("Reg number: "+listOfCars.getFirst().registrationNb);
-        System.out.println("First reg:"+listOfCars.getFirst().firstRegistrationDate);
-        System.out.println("odometer: "+listOfCars.getFirst().odometer);
-        System.out.println("Desc: "+listOfCars.getFirst().Description);
-        System.out.println("Auto:"+listOfCars.getFirst().automaticTransmission);
-        System.out.println("AC"+listOfCars.getFirst().AC);
-        System.out.println("Rented out:"+listOfCars.getFirst().borrowed);
-        System.out.println("Seats:"+listOfCars.getFirst().seats);
+
+        /*System.out.println("brand: "+listOfCars.getLast().brand);
+        System.out.println("model: "+listOfCars.getLast().model);
+        System.out.println("fueltype:"+listOfCars.getLast().fuelType);
+        System.out.println("Reg number: "+listOfCars.getLast().registrationNb);
+        System.out.println("First reg:"+listOfCars.getLast().firstRegistrationDate);
+        System.out.println("odometer: "+listOfCars.getLast().odometer);
+        System.out.println("Desc: "+listOfCars.getLast().Description);
+        System.out.println("Auto:"+listOfCars.getLast().automaticTransmission);
+        System.out.println("AC"+listOfCars.getLast().AC);
+        System.out.println("Rented out:"+listOfCars.getLast().borrowed);
+        System.out.println("Seats:"+listOfCars.getLast().seats);*/
 
 
-        /*
         for(Car c: listOfCars){
             System.out.println(c);
-        }*/
-
+        }
     }//end of main
 
     public static ArrayList<Car> readFromFile (Scanner scan){
@@ -72,46 +71,45 @@ public class honolulu {
            // System.out.println(firstRegistrationDate);
 
             double odometer = 0;
-            while (linescan.hasNextDouble() && !(linescan.hasNext(";"))){
-                odometer= linescan.nextDouble();
+            while (linescan.hasNext() && !(linescan.hasNext(";"))){
+                odometer= linescan.nextInt();
             }
-            //linescan.next();
+            linescan.next();
             //System.out.println(odometer);
 
             String description = " ";
             while (linescan.hasNext() && !(linescan.hasNext(";"))){
-                description += linescan.nextInt() + " ";
+                description += linescan.next() + " ";
             }
-            //linescan.next();
+            linescan.next();
             //System.out.println(description);
 
             boolean automaticTransmission = true;
             while (linescan.hasNext() && !(linescan.hasNext(";"))){
                 automaticTransmission = linescan.nextBoolean();
             }
-            //linescan.next();
+            linescan.next();
             //System.out.println(automaticTransmission);
 
             boolean AC = true;
             while (linescan.hasNext() && !(linescan.hasNext(";"))){
                 AC = linescan.nextBoolean();
             }
-            //linescan.next();
-            //kli
+            linescan.next();
             //System.out.println(AC);
 
             boolean borrowed = true;
             while (linescan.hasNext() && !(linescan.hasNext(";"))){
                 borrowed = linescan.nextBoolean();
             }
-            //linescan.next();
+            linescan.next();
             //System.out.println(borrowed);
 
             int seats = 0;
             while (linescan.hasNext() && !(linescan.hasNext(";"))){
                 seats= linescan.nextInt();
             }
-            linescan.next();
+            //linescan.next();
 
             //System.out.println(seats);
 
