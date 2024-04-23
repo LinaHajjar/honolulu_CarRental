@@ -97,6 +97,7 @@ public class honolulu {
                 AC = linescan.nextBoolean();
             }
             //linescan.next();
+            //kli
             //System.out.println(AC);
 
             boolean borrowed = true;
