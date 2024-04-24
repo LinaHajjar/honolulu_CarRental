@@ -33,4 +33,8 @@ public class Car {
     public String toString() {
         return (brand + " ; " + model + " ; " + fuelType + " ; " + registrationNb + " ; " + firstRegistrationDate + " ; " + odometer + " ; " +  Description + " ; " +  automaticTransmission + " ; " + AC + " ; " + borrowed+ " ; " + seats + " ; ");
     }
+
+    public String toPrint() {
+        return ("brand                   : " + brand+  "\nmodel                   : " + model +"\nfueltype                : " + fuelType + "\nRegistration number     : " +registrationNb + "\nFirst registration date : " + firstRegistrationDate+ "\nodometer                : " + odometer+ "\nDescription             : " +Description+  "\nAutomatic transmission  : " + automaticTransmission + "\nAC                      : " + AC + "\nBorrowed                : " + borrowed + "\nSeats                   : " + seats);
+    }
 }

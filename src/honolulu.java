@@ -23,7 +23,8 @@ public class honolulu {
 
 
         for(Car c: listOfCars){
-            System.out.println(c);
+            System.out.println(c.toPrint());
+            System.out.println();
         }
     }//end of main
 
@@ -118,6 +119,7 @@ public class honolulu {
             listOfCar.add(newcar);
 
         }//end while hasNextLine
+
 
         return (listOfCar);
 
