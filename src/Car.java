@@ -39,4 +39,8 @@ public class Car {
     public String toPrint() {
         return ("brand                   : " + brand+  "\nmodel                   : " + model +"\nfueltype                : " + fuelType + "\nRegistration number     : " +registrationNb + "\nFirst registration date : " + firstRegistrationDate+ "\nodometer                : " + odometer+ "\nDescription             : " +Description+  "\nAutomatic transmission  : " + automaticTransmission + "\nAC                      : " + AC + "\nBorrowed                : " + borrowed + "\nSeats                   : " + seats);
     }
+
+    public String toPrint() {
+        return ("brand                   : " + brand+  "\nmodel                   : " + model +"\nfueltype                : " + fuelType + "\nRegistration number     : " +registrationNb + "\nFirst registration date : " + firstRegistrationDate+ "\nodometer                : " + odometer+ "\nDescription             : " +Description+  "\nAutomatic transmission  : " + automaticTransmission + "\nAC                      : " + AC + "\nBorrowed                : " + borrowed + "\nSeats                   : " + seats);
+    }
 }
