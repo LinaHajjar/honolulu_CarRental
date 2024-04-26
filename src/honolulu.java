@@ -1,30 +1,22 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 
 public class honolulu {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 
         Scanner scan=new Scanner(new File("src/Cars List"));
+        Scanner input =new Scanner(System.in);
         ArrayList <Car> listOfCars = readFromFile(scan);
 
-        /*System.out.println("brand: "+listOfCars.getLast().brand);
-        System.out.println("model: "+listOfCars.getLast().model);
-        System.out.println("fueltype:"+listOfCars.getLast().fuelType);
-        System.out.println("Reg number: "+listOfCars.getLast().registrationNb);
-        System.out.println("First reg:"+listOfCars.getLast().firstRegistrationDate);
-        System.out.println("odometer: "+listOfCars.getLast().odometer);
-        System.out.println("Desc: "+listOfCars.getLast().Description);
-        System.out.println("Auto:"+listOfCars.getLast().automaticTransmission);
-        System.out.println("AC"+listOfCars.getLast().AC);
-        System.out.println("Rented out:"+listOfCars.getLast().borrowed);
-        System.out.println("Seats:"+listOfCars.getLast().seats);*/
-
-
         for(Car c: listOfCars){
-            System.out.println(c);
+            System.out.println(c.toPrint());
+            System.out.println();
         }
+        writeToFile(listOfCars);
+        UI.hovedMenu(scan);
+
     }//end of main
 
     public static ArrayList<Car> readFromFile (Scanner scan){
@@ -33,6 +25,9 @@ public class honolulu {
 
         while (scan.hasNextLine()){
             String line=scan.nextLine();
+            if(line.equals("End of file")){
+                break;
+            }
             Scanner linescan=new Scanner(line);
 
             String brand= "";
@@ -70,7 +65,7 @@ public class honolulu {
             linescan.next();
            // System.out.println(firstRegistrationDate);
 
-            double odometer = 0;
+            int odometer = 0;
             while (linescan.hasNext() && !(linescan.hasNext(";"))){
                 odometer= linescan.nextInt();
             }
@@ -122,4 +117,51 @@ public class honolulu {
         return (listOfCar);
 
     }//end readFromFile
+
+    //method that write a new car in the txt-file
+    public static void writeToFile (ArrayList<Car> carsList) throws IOException {
+        BufferedWriter out = new BufferedWriter(new FileWriter("src/Cars List"));
+        for (Car car: carsList){
+            out.write(car.toString());
+        }
+        out.write("End of file");
+        out.close();
+    }//end of writetofile
+
+
+    // vi mangler at lave et arraylist med customerContract
+    public static void makeContract(Scanner input, ArrayList<Car>listOfCars, ArrayList<CustomerContract>contracts){
+        System.out.println("Please enter the start date of the period you want to rent a car\n use the format year-month-date");
+        LocalDate startDate = LocalDate.parse(input.nextLine());
+        System.out.println("And for how long would you like to rent the car?");
+        int daysOfRental = input.nextInt();
+        LocalDate endDate = startDate.plusDays(daysOfRental);
+        System.out.println("These are the available cars for the period you've entered");
+        int i =1;
+        for(Car c:availableCars(listOfCars, startDate, endDate, contracts)){
+            System.out.println(i + " " + c);
+            i++;
+        }
+        System.out.println("which car would you like to rent?, please enter a number");
+        int carIndex= input.nextInt();
+
+        System.out.println("How long do you expect you will be driving per day?");
+        int maxKm = input.nextInt();
+
+
+    }//end of makeContract
+
+    public static ArrayList<Car>availableCars(ArrayList<Car>allCars, LocalDate startDate, LocalDate endDate,ArrayList<CustomerContract>contracts){
+       ArrayList<Car>availableCars = new ArrayList<>();
+       ArrayList<Car>unavailableCars = new ArrayList<>();
+       for (CustomerContract c:contracts){
+           if(startDate.isAfter(c.getRentalStartDate()) && startDate.isBefore(c.getRentalEndDate())){
+               unavailableCars.add(c.getCar());
+           }
+       }
+       availableCars.removeAll(unavailableCars);
+       return availableCars;
+    }
+
+
 }
