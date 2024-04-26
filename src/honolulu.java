@@ -15,7 +15,7 @@ public class honolulu {
             System.out.println();
         }
         writeToFile(listOfCars);
-        UI.hovedMenu(scan);
+        UI.hovedMenu(scan, listOfCars, contracts);
 
     }//end of main
 
@@ -130,7 +130,7 @@ public class honolulu {
     }//end of writetofile
 
 
-    // vi mangler at lave et arraylist med customerContract
+
     public static void makeContract(Scanner input, ArrayList<Car>listOfCars, ArrayList<CustomerContract>contracts){
         System.out.println("Please enter the start date of the period you want to rent a car\n use the format year-month-date");
         LocalDate startDate = LocalDate.parse(input.nextLine());
@@ -153,7 +153,8 @@ public class honolulu {
     }//end of makeContract
 
     public static ArrayList<Car>availableCars(ArrayList<Car>allCars, LocalDate startDate, LocalDate endDate,ArrayList<CustomerContract>contracts){
-       ArrayList<Car>availableCars = new ArrayList<>();
+       ArrayList<Car>availableCars=new ArrayList<>();
+       availableCars.addAll(allCars);
        ArrayList<Car>unavailableCars = new ArrayList<>();
        for (CustomerContract c:contracts){
            if(startDate.isAfter(c.getRentalStartDate()) && startDate.isBefore(c.getRentalEndDate())){

@@ -1,11 +1,12 @@
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UI {
 
     Scanner scan =new Scanner(System.in);
 
-    public static void hovedMenu(Scanner scan) throws FileNotFoundException {
+    public static void hovedMenu(Scanner scan, ArrayList<Car> listOfCars, ArrayList<CustomerContract>contracts) throws FileNotFoundException {
         System.out.println("===============================================");
         System.out.println("                   Hovedmenu                   ");
         System.out.println("===============================================");
@@ -42,7 +43,7 @@ public class UI {
 
             case 5:
                 System.out.println("you chose option (make a new contract).");
-                honolulu.makeContract(scan);
+                honolulu.makeContract(scan, listOfCars, contracts);
                 break;
 
             case 6:
@@ -59,7 +60,7 @@ public class UI {
 
             default:
                 System.out.println("you have entered a wrong number, please try again");
-                hovedMenu(scan);
+                hovedMenu(scan, listOfCars, contracts);
 
 
         }//end switch
