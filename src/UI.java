@@ -2,7 +2,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
+
+import static java.util.Objects.isNull;
 
 public class UI {
 
@@ -25,7 +28,8 @@ public class UI {
         System.out.println("  Press 6: Make a new contract                 ");//make a new order
         System.out.println("  Press 7: Edit a car                          ");
         System.out.println("  Press 8: Edit a contract                     ");
-        System.out.println("  Press 9: End the program                     ");
+        System.out.println("  Press 9: Search and book                     ");
+        System.out.println("  Press 10: End the program                    ");
 
         System.out.println("Enter please");
         int choice= scan.nextInt();
@@ -51,7 +55,7 @@ public class UI {
                 startDate=LocalDate.parse(scan.nextLine());
                 System.out.println("Please enter end date for the rental period");
                 endDate=LocalDate.parse(scan.nextLine());
-                ArrayList<Car>unavailableCars = (honolulu.availableCars(listOfCars,startDate,endDate,contracts));
+                ArrayList<Car>unavailableCars = (honolulu.unavailableCars(listOfCars,startDate,endDate,contracts));
                 for(Car c: unavailableCars){
                     System.out.println(c.shortPrint());
                     System.out.println();
@@ -74,22 +78,32 @@ public class UI {
 
             case 5:
                 System.out.println("you chose option 5: ");
-                contracts.add(honolulu.makeContract(scan, listOfCars, contracts));
-                break;
 
+                break;
             case 6:
                 System.out.println("you chose option 6: ");
-                honolulu.makeContract(scan, listOfCars, contracts);
+                CustomerContract newContract = honolulu.makeContract(scan, listOfCars, contracts);
+                /*for (CustomerContract c:contracts){
+                    System.out.println(c.toPrint());
+                }
+
+                 */
                 break;
 
             case 7:
                 System.out.println("you chose option 7: ");
+
                 break;
 
             case 8:
-
                 break;
+
             case 9:
+                honolulu.searchCar(listOfCars,contracts,scan);
+                hovedMenu(scan, listOfCars,contracts);
+                break;
+
+            case 10:
                 System.exit(0);
                 break;
 
