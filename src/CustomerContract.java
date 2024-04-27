@@ -24,6 +24,9 @@ public class CustomerContract {
         this.odometerAtRentalStartDate=odometerAtRentalStartDate;
     }
 
+    public Customer getCustomer(){
+        return customer;
+    }
 
     public String toString(){
         return (contractNumber + " ; " + customer + " ; " + rentalStartDate + " ; " + rentalEndDate + " ; " + car +" ; "+ maxKm +" ; " + odometerAtRentalStartDate);
@@ -42,6 +45,9 @@ public class CustomerContract {
 
     }
 
+    public String toFile(){
+        return ("00"+contractNumber+" ; "+customer.getNameOfDriver()+" ; "+customer.getMobilNr()+" ; " +rentalStartDate+" ; "+rentalEndDate+" ; "+car.getRegistrationNb()+" ; "+maxKm+" ; "+car.getOdometer()+" ;\n");
+    }
 
 
     /*static Period	between(LocalDate startDateInclusive, LocalDate endDateExclusive)

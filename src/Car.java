@@ -34,6 +34,15 @@ public class Car {
     public int getOdometer(){
         return odometer;
     }
+    public String getBrand(){
+        return brand;
+    }
+    public String getModel(){
+        return model;
+    }
+    public String getDescription(){
+        return Description;
+    }
 
     public String toString() {
         return (brand + " ; " + model + " ; " + fuelType + " ; " + registrationNb + " ; " + firstRegistrationDate + " ; " + odometer + " ; " +  Description + " ; " +  automaticTransmission + " ; " + AC + " ; " + borrowed+ " ; " + seats + " ; "+"\n");
@@ -44,7 +53,7 @@ public class Car {
     }
 
     public String shortPrint() {
-        return ("brand                             : " + brand+  "\nmodel                             : " + model +"\nfueltype                          : " + fuelType + "\nDescription                       : " +Description+  "\nAutomatic transmission            : " + automaticTransmission + "\nAC                                : " + AC + "\nSeats                             : " + seats);
+        return ("Brand                             : " + brand+  "\nModel                             : " + model +"\nFueltype                          : " + fuelType + "\nDescription                       : " +Description+  "\nAutomatic transmission            : " + automaticTransmission + "\nAC                                : " + AC + "\nSeats                             : " + seats);
     }
 
     public String getRegistrationNb(){
