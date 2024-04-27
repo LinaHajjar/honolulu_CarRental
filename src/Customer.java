@@ -28,4 +28,18 @@ public class Customer {
         return nameOfDriver;
     }
 
+    public String toString(){
+        return (nameOfDriver + " ; " + addressOfDriver + " ; " + zipCode + " ; " + city + " ; " + country +" ; "+ mobilNr +" ; " + email);
+    }
+
+    public String toPrint(){
+        return ("Name of the driver                : "+ nameOfDriver + "\n" +
+                "Address of the driver             : "+ addressOfDriver + "\n" +
+                "Zip Code                          : "+zipCode + "\n" +
+                "City                              : "+city + "\n" +
+                "Country                           : "+country + "\n" +
+                "Mobil number                      : "+mobilNr + "\n" +
+                "E-mail                            : "+email + "\n");
+    }
+
 }

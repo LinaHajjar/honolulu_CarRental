@@ -11,6 +11,7 @@ public class honolulu {
         Scanner input =new Scanner(System.in);
         ArrayList <Car> listOfCars = readFromFile(scan);
         ArrayList <Customer> customers =readFromFileCustomers(scan);
+        ArrayList<CustomerContract> contracts =readFromFileContracts(input,customers, listOfCars);
 
         for(Car c: listOfCars){
             System.out.println(c.toPrint());
@@ -18,7 +19,17 @@ public class honolulu {
         }
         writeToFile(listOfCars);
 
-        UI.hovedMenu(input, listOfCars, readFromFileContracts(scan, customers,listOfCars)); //readFromFileContracts(scan) returns contracts that are read from the Contracts txt file
+        for(Customer c: customers){
+            System.out.println(c.toPrint());
+            System.out.println();
+        }
+
+        for(CustomerContract c: contracts){
+            System.out.println(c.toPrint());
+            System.out.println();
+        }
+
+        //UI.hovedMenu(input, listOfCars, readFromFileContracts(scan, customers,listOfCars)); //readFromFileContracts(scan) returns contracts that are read from the Contracts txt file
 
     }//end of main
 
@@ -379,63 +390,63 @@ public class honolulu {
                 name +=linescan.next();
             }
             linescan.next();
-            System.out.println(name);
+            //System.out.println(name);
 
             String address= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 address+=linescan.next();
             }
             linescan.next();
-            System.out.println(address);
+            //System.out.println(address);
 
             int zipCode= 0;
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 zipCode=linescan.nextInt();
             }
             linescan.next();
-            System.out.println(zipCode);
+            //System.out.println(zipCode);
 
             String city= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 city +=linescan.next();
             }
             linescan.next();
-            System.out.println(city);
+            //System.out.println(city);
 
             String country= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 country +=linescan.next();
             }
             linescan.next();
-            System.out.println(country);
+            //System.out.println(country);
 
             int tlfNb= 0;
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 tlfNb=linescan.nextInt();
             }
             linescan.next();
-            System.out.println(tlfNb);
+            //System.out.println(tlfNb);
 
             String email= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 email +=linescan.next();
             }
             linescan.next();
-            System.out.println(email);
+            //System.out.println(email);
 
             int driverslicenceNumber = 0;
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 driverslicenceNumber=linescan.nextInt();
             }
             //linescan.next();
-            System.out.println(driverslicenceNumber);
+            //System.out.println(driverslicenceNumber);
 
             int yearsWithLicence=0;
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 yearsWithLicence=linescan.nextInt();
             }
             //linescan.next();
-            System.out.println(yearsWithLicence);
+            //System.out.println(yearsWithLicence);
 
             PrivateCustomer customer=new PrivateCustomer(name, address, zipCode, city, country, tlfNb, email, driverslicenceNumber, yearsWithLicence);
             customers.add(customer);
@@ -454,77 +465,77 @@ public class honolulu {
                 name +=linescan.next();
             }
             linescan.next();
-            System.out.println(name);
+            //System.out.println(name);
 
             String address= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 address+=linescan.next();
             }
             linescan.next();
-            System.out.println(address);
+            //System.out.println(address);
 
             int zipCode= 0;
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 zipCode=linescan.nextInt();
             }
             linescan.next();
-            System.out.println(zipCode);
+            //System.out.println(zipCode);
 
             String city= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 city +=linescan.next();
             }
             linescan.next();
-            System.out.println(city);
+            //System.out.println(city);
 
             String country= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 country +=linescan.next();
             }
             linescan.next();
-            System.out.println(country);
+            //System.out.println(country);
 
             int tlfNb= 0;
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 tlfNb=linescan.nextInt();
             }
             linescan.next();
-            System.out.println(tlfNb);
+            //System.out.println(tlfNb);
 
             String email= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 email +=linescan.next();
             }
             linescan.next();
-            System.out.println(email);
+            //System.out.println(email);
 
             String companyName = "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 companyName +=linescan.next();
             }
             linescan.next();
-            System.out.println(companyName);
+            //System.out.println(companyName);
 
             String companyAddress= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 companyAddress+=linescan.next();
             }
             linescan.next();
-            System.out.println(companyAddress);
+            //System.out.println(companyAddress);
 
             int companyPhoneNb=0;
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 companyPhoneNb=linescan.nextInt();
             }
             linescan.next();
-            System.out.println(companyPhoneNb);
+            //System.out.println(companyPhoneNb);
 
             String companyCRN = "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
                 companyCRN+=linescan.next();
             }
             //linescan.next();
-            System.out.println(companyCRN);
+            //System.out.println(companyCRN);
 
             CompanyCustomer customer=new CompanyCustomer(name, address, zipCode, city, country, tlfNb, email, companyName, companyAddress, companyPhoneNb, companyCRN);
             customers.add(customer);
