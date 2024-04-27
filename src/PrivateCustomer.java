@@ -6,7 +6,7 @@ public class PrivateCustomer extends Customer {
 
     }
 
-    public PrivateCustomer(String nameOfDriver, String addressOfDriver, int zipCode, String city, String country, int mobilNr, String email, int driverslicenceNumber, int yearsWithLicence){
+    public PrivateCustomer(String nameOfDriver, String addressOfDriver, int zipCode, String city, String country, String mobilNr, String email, int driverslicenceNumber, int yearsWithLicence){
         super(nameOfDriver, addressOfDriver, zipCode, city, country, mobilNr, email);
         this.driverslicenceNumber=driverslicenceNumber;
         this.yearsWithLicence=yearsWithLicence;
