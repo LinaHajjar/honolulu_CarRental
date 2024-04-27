@@ -31,6 +31,9 @@ public class Car {
         this.seats=seats;
         //this.defaultPrice=defaultPrice;
     }
+    public int getOdometer(){
+        return odometer;
+    }
 
     public String toString() {
         return (brand + " ; " + model + " ; " + fuelType + " ; " + registrationNb + " ; " + firstRegistrationDate + " ; " + odometer + " ; " +  Description + " ; " +  automaticTransmission + " ; " + AC + " ; " + borrowed+ " ; " + seats + " ; "+"\n");
@@ -38,6 +41,10 @@ public class Car {
 
     public String toPrint() {
         return ("brand                             : " + brand+  "\nmodel                             : " + model +"\nfueltype                          : " + fuelType + "\nRegistration number               : " +registrationNb + "\nFirst registration date           : " + firstRegistrationDate+ "\nodometer                          : " + odometer+ "\nDescription                       : " +Description+  "\nAutomatic transmission            : " + automaticTransmission + "\nAC                                : " + AC + "\nBorrowed                          : " + borrowed + "\nSeats                             : " + seats);
+    }
+
+    public String shortPrint() {
+        return ("brand                             : " + brand+  "\nmodel                             : " + model +"\nfueltype                          : " + fuelType + "\nDescription                       : " +Description+  "\nAutomatic transmission            : " + automaticTransmission + "\nAC                                : " + AC + "\nSeats                             : " + seats);
     }
 
     public String getRegistrationNb(){

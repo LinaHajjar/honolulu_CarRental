@@ -4,13 +4,13 @@ public class Customer {
     int zipCode;
     String city;
     String country;
-    int mobilNr;
+    String mobilNr;
     String email;
 
     public Customer(){
 
     }
-    public Customer(String nameOfDriver, String addressOfDriver, int zipCode, String city, String country, int mobilNr, String email ){
+    public Customer(String nameOfDriver, String addressOfDriver, int zipCode, String city, String country, String mobilNr, String email ){
         this.nameOfDriver=nameOfDriver;
         this.addressOfDriver=addressOfDriver;
         this.zipCode=zipCode;
@@ -20,7 +20,7 @@ public class Customer {
         this.email=email;
     }
 
-    public  int getMobilNr (){
+    public  String getMobilNr (){
         return mobilNr;
     }
 

@@ -11,9 +11,9 @@ public class honolulu {
         Scanner input =new Scanner(System.in);
         ArrayList <Car> listOfCars = readFromFile(scan);
         ArrayList <Customer> customers =readFromFileCustomers(scan);
-        ArrayList<CustomerContract> contracts =readFromFileContracts(input,customers, listOfCars);
+        ArrayList<CustomerContract> contracts =readFromFileContracts(customers, listOfCars);
 
-        for(Car c: listOfCars){
+        /*for(Car c: listOfCars){
             System.out.println(c.toPrint());
             System.out.println();
         }
@@ -28,8 +28,10 @@ public class honolulu {
             System.out.println(c.toPrint());
             System.out.println();
         }
+        */
 
-        //UI.hovedMenu(input, listOfCars, readFromFileContracts(scan, customers,listOfCars)); //readFromFileContracts(scan) returns contracts that are read from the Contracts txt file
+
+        UI.hovedMenu(input, listOfCars, contracts); //readFromFileContracts(scan) returns contracts that are read from the Contracts txt file
 
     }//end of main
 
@@ -132,6 +134,34 @@ public class honolulu {
 
     }//end readFromFile
 
+    public static Car addCar(Scanner input){
+        System.out.println("To add a new car, first we need some information");
+        System.out.println("Please enter the brand:");
+        String brand= input.nextLine();
+        System.out.println("Please enter the model:");
+        String model = input.nextLine();
+        System.out.println("Please enter the fueltype:");
+        String fueltype= input.nextLine();
+        System.out.println("Please enter the registration number:");
+        String registrationNb = input.nextLine();
+        System.out.println("Please enter the date of the first registration, in the format year-month-date::");
+        LocalDate firstRegDate=LocalDate.parse(input.nextLine());
+        System.out.println("Please enter the kilometers on the odometer");
+        int odometer = input.nextInt();
+        System.out.println("Please add a description");
+        String description = input.nextLine();
+        System.out.println("Does the car have automatic transmission? true for yes / false for no");
+        boolean automaticTransmission = input.nextBoolean();
+        System.out.println("Does the car have air conditioning? true for yes / false for no");
+        boolean AC = input.nextBoolean();
+        System.out.println("is the car currently rented out? true for yes / false for no");
+        boolean borrowed = input.nextBoolean();
+        System.out.println("Please nter the number of seats in the car:");
+        int seats = input.nextInt();
+        Car newCar = new Car(brand,model,fueltype,registrationNb,firstRegDate,odometer,description,automaticTransmission,AC,borrowed,seats);
+        return newCar;
+    }
+
     //method that write a new car in the txt-file
     public static void writeToFile (ArrayList<Car> carsList) throws IOException {
         BufferedWriter out = new BufferedWriter(new FileWriter("src/Cars List"));
@@ -142,8 +172,8 @@ public class honolulu {
         out.close();
     }//end of writetofile
 
-    public static void makeContract(Scanner input, ArrayList<Car>listOfCars, ArrayList<CustomerContract>contracts){
-        System.out.println("Please enter the start date of the period you want to rent a car\n use the format year-month-date");
+    public static CustomerContract makeContract(Scanner input, ArrayList<Car>listOfCars, ArrayList<CustomerContract>contracts){
+        System.out.println("Please enter the start date of the period you want to rent a car\nUse the format year-month-date");
         input.nextLine();
         LocalDate startDate=LocalDate.parse(input.nextLine());
 
@@ -152,15 +182,21 @@ public class honolulu {
         LocalDate endDate = startDate.plusDays(daysOfRental);
         System.out.println("These are the available cars for the period you've entered");
         int i =1;
-        for(Car c:availableCars(listOfCars, startDate, endDate, contracts)){
+        ArrayList<Car>availableCars= availableCars(listOfCars, startDate, endDate, contracts);
+        for(Car c:availableCars){
             System.out.println(i + " " + c);
             i++;
         }
-        System.out.println("which car would you like to rent?, please enter a number");
+        System.out.println("which car would you like to rent?, please enter the corresponding number ");
         int carIndex= input.nextInt();
 
         System.out.println("How long do you expect you will be driving per day?");
         int maxKm = input.nextInt();
+
+        Customer newCustomer = newCustomer(input);
+
+        CustomerContract newContract = new CustomerContract(contracts.size(),newCustomer,startDate,endDate,availableCars.get(carIndex-1),maxKm,availableCars.get(carIndex-1).getOdometer());
+        return newContract;
 
     }//end of makeContract
 
@@ -177,8 +213,69 @@ public class honolulu {
        return availableCars;
     }//end of method: availableCars
 
+    public static Customer newCustomer(Scanner input){
+        Customer newCustomer = new Customer();
+        System.out.println("Please choose whether its a private customer, or a company customer");
+        System.out.println("Enter 1 for private and 2 for company");
+        int customerType = input.nextInt();
+        input.nextLine();
+        System.out.println("To add a new customer, first we need some information");
+        System.out.println("Please enter the name of the driver: ");
+        String nameOfDriver = input.nextLine();
+        System.out.println("Please enter the address of the driver: ");
+        String addressOfDriver = input.nextLine();
+        System.out.println("Please enter the zipcode: ");
+        int zipCode = input.nextInt();
+        input.nextLine();
+        System.out.println("Please enter the name of the city: ");
+        String city = input.nextLine();
+        System.out.println("Please enter the name of the country: ");
+        String country = input.nextLine();
+        System.out.println("Please enter the phonenumber of the driver: ");
+        String mobilNr = input.nextLine();
+        System.out.println("Please enter the E-mail of the driver: ");
+        String email = input.nextLine();
+        if(customerType==1){
+            System.out.println("Please enter the drivers license number of the driver: ");
+            int driversLicenseNumber = input.nextInt();
+            input.nextLine();
+            System.out.println("Please enter how many years the driver has had his license: ");
+            int yearsWithLicense = input.nextInt();
+            input.nextLine();
+            newCustomer = new PrivateCustomer(nameOfDriver,addressOfDriver,zipCode,city,country,mobilNr,email,driversLicenseNumber,yearsWithLicense);
+        }
+        else if(customerType == 2){
+            System.out.println("Please enter the company name: ");
+            String companyName = input.nextLine();
+            System.out.println("Please enter the company address: ");
+            String companyAddress = input.nextLine();
+            System.out.println("Please enter the company phonenumber: ");
+            int companyPhoneNr = input.nextInt();
+            input.nextLine();
+            System.out.println("Please enter the company CRN number: ");
+            String companyCRN = input.nextLine();
+            newCustomer = new CompanyCustomer(nameOfDriver,addressOfDriver,zipCode,city,country,mobilNr,email,companyName,companyAddress,companyPhoneNr,companyCRN);
+
+        }
+        else{
+            System.out.println("Wrong input");
+        }
+
+        return newCustomer;
+    }
+
+    public static ArrayList<Car>unavailableCars(ArrayList<Car>allCars, LocalDate startDate, LocalDate endDate,ArrayList<CustomerContract>contracts){
+        ArrayList<Car>unavailableCars = new ArrayList<>();
+        for (CustomerContract c:contracts){
+            if(startDate.isAfter(c.getRentalStartDate()) && startDate.isBefore(c.getRentalEndDate())){
+                unavailableCars.add(c.getCar());
+            }
+        }
+        return unavailableCars;
+    }//end of method: availableCars
+
     //method that reads the contracts from the file and return an arrayList
-    public static ArrayList<CustomerContract> readFromFileContracts (Scanner scan, ArrayList<Customer> customer, ArrayList<Car> car)throws FileNotFoundException{
+    public static ArrayList<CustomerContract> readFromFileContracts (ArrayList<Customer> customer, ArrayList<Car> car)throws FileNotFoundException{
         ArrayList<CustomerContract> contracts = new ArrayList<>();
         Scanner readFile = new Scanner(new File("src/Contracts"));
 
@@ -213,7 +310,7 @@ public class honolulu {
             Customer customer1=new Customer();
             for (Customer c: customer){
                 int j=0;
-                if((c.getNameOfDriver().equals(name)) && (c.getMobilNr()==tlfNb)){
+                if((c.getNameOfDriver().equals(name)) && (c.getMobilNr().equals(tlfNb))){
                     customer1=c;
                     j=1;
                 }
@@ -304,7 +401,7 @@ public class honolulu {
             Customer customer2=new Customer();
             for (Customer c: customer){
                 int j=0;
-                if((c.getNameOfDriver().equals(name)) && (c.getMobilNr()==tlfNb)){
+                if((c.getNameOfDriver().equals(name)) && (c.getMobilNr().equals(tlfNb))){
                     customer2=c;
                     j=1;
                 }
@@ -367,6 +464,7 @@ public class honolulu {
         return contracts;
     }//end of method readFromFileContracts
 
+
     public static ArrayList <Customer> readFromFileCustomers(Scanner scan) throws FileNotFoundException{
 
         ArrayList<Customer> customers = new ArrayList<>();
@@ -415,9 +513,9 @@ public class honolulu {
             linescan.next();
             //System.out.println(country);
 
-            int tlfNb= 0;
+            String tlfNb= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
-                tlfNb=linescan.nextInt();
+                tlfNb=linescan.next();
             }
             linescan.next();
             //System.out.println(tlfNb);
@@ -490,9 +588,9 @@ public class honolulu {
             linescan.next();
             //System.out.println(country);
 
-            int tlfNb= 0;
+            String tlfNb= "";
             while (linescan.hasNext() && !linescan.hasNext(";")){
-                tlfNb=linescan.nextInt();
+                tlfNb=linescan.next();
             }
             linescan.next();
             //System.out.println(tlfNb);
