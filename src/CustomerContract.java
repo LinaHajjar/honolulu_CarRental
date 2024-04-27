@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.time.Period;
 
-public class CustomerContract extends PrivateCustomer{
+public class CustomerContract {
     int contractNumber;
     Customer customer;
     LocalDate rentalStartDate;
@@ -22,7 +22,7 @@ public class CustomerContract extends PrivateCustomer{
         this.car=car;
         this.maxKm=maxKm;
         this.odometerAtRentalStartDate=odometerAtRentalStartDate;
-            }
+    }
 
     /*static Period	between(LocalDate startDateInclusive, LocalDate endDateExclusive)
     Obtains a Period consisting of the number of years, months, and days between two dates.
@@ -45,7 +45,7 @@ public class CustomerContract extends PrivateCustomer{
         return(totalDays);
     }
 
-    public double calculatePrice(){ //hvorfor ikke public static
+    public double calculatePrice(){
         double defaultPrice= 200.0;
         return (defaultPrice + 100 *duration() );
     }

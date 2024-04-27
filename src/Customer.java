@@ -20,4 +20,12 @@ public class Customer {
         this.email=email;
     }
 
+    public  int getMobilNr (){
+        return mobilNr;
+    }
+
+    public String getNameOfDriver (){
+        return nameOfDriver;
+    }
+
 }

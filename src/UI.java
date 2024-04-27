@@ -22,6 +22,7 @@ public class UI {
         System.out.println("  Press 7: Edit a contract                     ");
         System.out.println("  Press 8: End the program                     ");
 
+        System.out.println("indtast please");
         int choice= scan.nextInt();
 
         switch (choice){
@@ -65,12 +66,6 @@ public class UI {
 
         }//end switch
 
-
-
-
     }//end of HovedMenu
-
-
-
 
 }

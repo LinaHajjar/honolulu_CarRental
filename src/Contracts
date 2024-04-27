@@ -1,13 +1,9 @@
-Customer Contract
-001 , Anders Jensen , Elmegade 10 , 2200 , København , Danmark , 12345678 , anders@example.com , 12345 , 5 , 2024-05-01 , 2024-05-10 , Volvo XC60
-002 , Maria Sanchez , vibevej 16 , 2400 , København , Danmark , 98765432 , maria@example.com , 54321, 3, 2024-06-15, 2024-06-30 , Toyota Camry
-003 , Pierre Dupont, Amagerbrogade , 2300, Amager , Danmark , 55555555 , pierre@example.com , 13579, 7 , 2024-07-10 , 2024-07-20 , BMW 3 Series
-004 , Anna Müller, Herlev Hovedvej , 2730 , Herlev , Danmark , 99999999 , anna@example.com , 24680 , 4 , 2024-08-05 , 2024-08-15 , Audi A4
+001 ; Anders Jensen ; 12345678 ; 2024-05-01 ; 2024-05-10 ; ABC123 ; 200 ; 81324 ;
+002 ; Maria Sanchez ; 456789123 ; 2024-06-15 ; 2024-06-30 ; XYZ456 ; 100 ; 54678 ;
+003 ; Pierre Dupont ; 654789321 ; 2024-07-20 ; 2024-07-28 ; DEF789 ; 150 ; 10111 ;
 Company Contract
-001 , Anders Jensen , Elmegade 10 , 2200 , København , Danmark , 12345678 , anders@example.com ,  ABC Logistics , Industriparken 5 , 98765432 , 12345678 ,  2024-05-01 , 2024-05-10 , Volvo XC60
-002 , Maria Sanchez , Elmegade 20 , 2200 , København , Danmark , 98765432 , maria@example.com , XYZ Enterprises , Amagerbrogade 30 , 2300 , København , Danmark , 12345678 , 98765432 , 2024-06-15 , 2024-06-30 , Toyota Camry
-003 , Pierre Dupont , Vesterbrogade 15 , 1620 , København , Danmark , 55555555 , pierre@example.com , Global Solutions , Nørrebrogade 10 , 2200 , København , Danmark , 33333333 , 24681012 , 2024-07-10 , 2024-07-20 , BMW 3 Series
-004 , Anna Müller , Østerbrogade 5 , 2100 , København , Danmark , 77777777 , anna@example.com , Tech Innovations , Frederiksberggade 25 , 2000 , Frederiksberg , Danmark , 44444444 , 13579111 , 2024-08-05 , 2024-08-15 , Audi A4
-
+001 ; Lina Al-Hajjar ; 511123456 ; 2024-05-01 ; 2024-05-10 ; QRS101 ; 500 ; 121121 ;
+002 ; Lasse Otterstrøm ; 51987654 ; 2024-06-15 ; 2024-06-30 ; LMN202 ; 50 ; 43567 ;
+end of list
 
 
