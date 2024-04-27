@@ -147,9 +147,6 @@ public class honolulu {
         input.nextLine();
         LocalDate startDate=LocalDate.parse(input.nextLine());
 
-
-
-
         System.out.println("And for how long would you like to rent the car?");
         int daysOfRental = input.nextInt();
         LocalDate endDate = startDate.plusDays(daysOfRental);
@@ -164,7 +161,6 @@ public class honolulu {
 
         System.out.println("How long do you expect you will be driving per day?");
         int maxKm = input.nextInt();
-
 
     }//end of makeContract
 
@@ -370,7 +366,6 @@ public class honolulu {
 
         return contracts;
     }//end of method readFromFileContracts
-
 
     public static ArrayList <Customer> readFromFileCustomers(Scanner scan) throws FileNotFoundException{
 
