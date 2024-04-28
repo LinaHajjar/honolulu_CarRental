@@ -21,7 +21,6 @@ public class honolulu {
         }
         writeToFile(listOfCars);
 
-
         for(Customer c: customers){
             System.out.println(c.toPrint());
             System.out.println();
@@ -32,7 +31,6 @@ public class honolulu {
             System.out.println();
         }
         */
-
 
         UI.hovedMenu(input, listOfCars, contracts); //readFromFileContracts(scan) returns contracts that are read from the Contracts txt file
 
@@ -238,7 +236,7 @@ public class honolulu {
 
     public static Customer newCustomer(Scanner input){
         Customer newCustomer = new Customer();
-        System.out.println("Please choose whether its a private customer, or a company customer:");
+        System.out.println("Please choose whether it's a private customer, or a company customer:");
         System.out.println("Enter 1 for private and 2 for company");
         int customerType = input.nextInt();
         input.nextLine();
@@ -727,4 +725,85 @@ public class honolulu {
         }
         return false;
     }
+
+    public static Car editCar(Scanner scan,Car car){
+        System.out.println("====================================================");
+        System.out.println("            What do you want to change?             ");
+        System.out.println("====================================================");
+        System.out.println("  Press 1  for: Brand                               ");
+        System.out.println("  Press 2  for: Model                               ");
+        System.out.println("  Press 3  for: Fuel type                           ");
+        System.out.println("  Press 4  for: Registration number                 ");
+        System.out.println("  Press 5  for: First registration date             ");
+        System.out.println("  Press 6  for: Odometer                            ");
+        System.out.println("  Press 7  for: Description                         ");
+        System.out.println("  Press 8  for: Automatic transmission              ");
+        System.out.println("  Press 9  for: AC                                  ");
+        System.out.println("  Press 10 for: Borrowed                            ");
+        System.out.println("  Press 11 for: Number of seats                     ");
+        int choice= scan.nextInt();
+
+        switch (choice){
+            case 1:
+                System.out.println("Please write the new brand:");
+                String brand=scan.nextLine();
+                car.setBrand(brand);
+                break;
+            case 2:
+                System.out.println("Please write the new model:");
+                String model=scan.nextLine();
+                car.setModel(model);
+                break;
+            case 3:
+                System.out.println("Please write the new fuel type:");
+                String fueltype=scan.nextLine();
+                car.setFuelType(fueltype);
+                break;
+            case 4:
+                System.out.println("Please write the new registration number:");
+                String RegNb=scan.nextLine();
+                car.setRegistrationNb(RegNb);
+                break;
+            case 5:
+                System.out.println("Please write the new registration's date using the form year-month-day:");
+                LocalDate regDate=LocalDate.parse(scan.next());
+                car.setFirstRegistrationDate(regDate);
+                break;
+            case 6:
+                System.out.println("Please write the new number of Kms shown on the odometer:");
+                int odometer=scan.nextInt();
+                car.setOdometer(odometer);
+                break;
+            case 7:
+                System.out.println("Please write a new description of the car:");
+                String description=scan.nextLine();
+                car.setDescription(description);
+            case 8:
+                System.out.println("Does the car have now automatic transmission? true for yes, false for no.");
+                boolean aut=scan.nextBoolean();
+                car.setAutomaticTransmission(aut);
+                break;
+            case 9:
+                System.out.println("Does the car have now AC? true for yes, false for no.");
+                boolean ac=scan.nextBoolean();
+                car.setAC(ac);
+                break;
+            case 10:
+                System.out.println("Is the car now borrowed? true for yes, false for no.");
+                boolean borrowed=scan.nextBoolean();
+                car.setBorrowed(borrowed);
+                break;
+            case 11:
+                System.out.println("How many seats does the car have now?");
+                int seats = scan.nextInt();
+                car.setSeats(seats);
+                break;
+            default:
+                System.out.println("Invalid option, returning you the menu");
+                break;
+        }//end switch
+        return car;
+
+    }// end of editCar
+
 }//end of class

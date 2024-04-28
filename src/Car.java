@@ -29,19 +29,75 @@ public class Car {
         this.AC=AC;
         this.borrowed=borrowed;
         this.seats=seats;
-        //this.defaultPrice=defaultPrice;
     }
-    public int getOdometer(){
-        return odometer;
-    }
-    public String getBrand(){
+        public String getBrand(){
         return brand;
     }
     public String getModel(){
         return model;
     }
+    public String getFuelType(){
+        return fuelType;
+    }
+    public String getRegistrationNb(){
+        return registrationNb;
+    }
+
+    public LocalDate getFirstRegistrationDate() {
+        return firstRegistrationDate;
+    }
+
+    public int getOdometer(){
+        return odometer;
+    }
     public String getDescription(){
         return Description;
+    }
+    public boolean getAutomaticTransmission() {
+        return automaticTransmission;
+    }
+    public boolean getAC() {
+        return AC;
+    }
+    public boolean getBorrowed() {
+        return borrowed;
+    }
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setBrand(String brand){
+        this.brand=brand;
+    }
+    public void setModel(String model){
+        this.model=model;
+    }
+    public void setFuelType(String fuelType){
+        this.fuelType=fuelType;
+    }
+    public void setRegistrationNb(String registrationNb){
+        this.registrationNb=registrationNb;
+    }
+    public void setFirstRegistrationDate(LocalDate firstRegistrationDate){
+        this.firstRegistrationDate=firstRegistrationDate;
+    }
+    public void setOdometer(int odometer){
+        this.odometer=odometer;
+    }
+    public void setDescription(String Descritpion){
+        this.Description=Description;
+    }
+    public void setAutomaticTransmission(boolean automaticTransmission){
+        this.automaticTransmission=automaticTransmission;
+    }
+    public void setAC(boolean AC) {
+        this.AC = AC;
+    }
+    public void setBorrowed(boolean borrowed) {
+        this.borrowed = borrowed;
+    }
+    public void setSeats(int seats) {
+        this.seats = seats;
     }
 
     public String toString() {
@@ -54,10 +110,6 @@ public class Car {
 
     public String shortPrint() {
         return ("Brand                             : " + brand+  "\nModel                             : " + model +"\nFueltype                          : " + fuelType + "\nDescription                       : " +Description+  "\nAutomatic transmission            : " + automaticTransmission + "\nAC                                : " + AC + "\nSeats                             : " + seats);
-    }
-
-    public String getRegistrationNb(){
-        return registrationNb;
     }
 
 }
