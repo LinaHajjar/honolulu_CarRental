@@ -29,7 +29,8 @@ public class UI {
         System.out.println("  Press 7 for : Edit a car                          ");
         System.out.println("  Press 8 for : Edit a contract                     ");
         System.out.println("  Press 9 for : Search and book                     ");
-        System.out.println("  Press 10 for: End the program                     ");
+        System.out.println("  Press 10 for: return a car                        ");
+        System.out.println("  Press 11 for: End the program                     ");
 
         System.out.println("Enter please");
         int choice= scan.nextInt();
@@ -132,19 +133,32 @@ public class UI {
                 System.out.println("Which car do you want to edit? please enter the number of the car : ");
                 int NbEdit=scan.nextInt();
 
-                Car carToEdit=listOfCars.get(NbEdit-1);
-                System.out.println("you chose to edit the following car:\n" + carToEdit.toPrint());
+                //Car carToEdit=listOfCars.get(NbEdit-1); = listOfCars.get(NbEdit-1);
+                System.out.println("you chose to edit the following car:\n" + listOfCars.get(NbEdit-1));
 
-                Car editedCar=honolulu.editCar(scan, carToEdit);
+                honolulu.editCar(scan, listOfCars.get(NbEdit-1));
 
                 System.out.println("Here is the car after you changed some information:");
-                System.out.println(editedCar.toPrint());
+                System.out.println(listOfCars.get(NbEdit-1).toPrint());
 
                 hovedMenu(scan, listOfCars, contracts);
                 break;
 
             case 8:
-                System.out.println("you chose option 8: Edit a contract. ");
+                System.out.println("you chose option 8: edit a contract. ");
+                System.out.println("this is the list of all the contracts:");
+                int count2=1;
+                for (CustomerContract c: contracts){
+                    System.out.println(c.toPrint());
+                    System.out.println();
+
+                    count2++;
+                }
+                System.out.println("Which contract do you want to edit? please enter the number of the contract : ");
+                int ContractEdit=scan.nextInt();
+
+                //CustomerContract customerContractEdit=contracts.get(count2-1);
+                honolulu.editContract(scan, listOfCars ,contracts.get(count2-1), contracts);
 
                 hovedMenu(scan, listOfCars, contracts);
                 break;
@@ -156,7 +170,10 @@ public class UI {
                 hovedMenu(scan, listOfCars,contracts);
                 break;
 
-            case 10:
+            case 10: //
+                System.out.println("you chose option 10: return a car. ");
+
+            case 11:
                 System.exit(0);
                 break;
 

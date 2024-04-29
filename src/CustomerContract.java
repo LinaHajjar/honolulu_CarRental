@@ -32,7 +32,6 @@ public class CustomerContract {
         return (contractNumber + " ; " + customer + " ; " + rentalStartDate + " ; " + rentalEndDate + " ; " + car +" ; "+ maxKm +" ; " + odometerAtRentalStartDate);
     }
 
-
     public String toPrint(){
         return("================= Contract =================\n"+
                "¤ Contract number                 : "+ contractNumber+ "\n" +
@@ -69,6 +68,19 @@ public class CustomerContract {
         int days =between.getDays();
         int totalDays= (months * 30) + days;
         return(totalDays);
+    }
+
+    public void setCar(Car car){
+        this.car=car;
+    }
+    public void setRentalStartDate(LocalDate rentalStartDate){
+        this.rentalStartDate=rentalStartDate;
+    }
+    public void setRentalEndDate(LocalDate rentalEndDate){
+        this.rentalEndDate=rentalEndDate;
+    }
+    public void setMaxKm(int maxKm){
+        this.maxKm=maxKm;
     }
 
     public double calculatePrice(){
