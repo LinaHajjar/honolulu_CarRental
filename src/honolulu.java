@@ -516,9 +516,7 @@ public class honolulu {
             }
             linescan.next();
 
-
-
-            String address= "testaddress";
+            String address= "";
             while ((linescan.hasNext()) && !linescan.hasNext(";")){
                 address +=linescan.next()+" ";
             }
