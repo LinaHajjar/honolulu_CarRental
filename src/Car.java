@@ -30,7 +30,7 @@ public class Car {
         this.borrowed=borrowed;
         this.seats=seats;
     }
-        public String getBrand(){
+    public String getBrand(){
         return brand;
     }
     public String getModel(){

@@ -11,7 +11,7 @@ public class UI {
 
     Scanner scan =new Scanner(System.in);
 
-    public static void hovedMenu(Scanner scan, ArrayList<Car> listOfCars, ArrayList<CustomerContract>contracts) throws IOException {
+    public static void hovedMenu(Scanner scan, ArrayList<Car> listOfCars, ArrayList<CustomerContract>contracts,ArrayList<Customer> allCustomers) throws IOException {
         LocalDate startDate = LocalDate.now();
         LocalDate endDate = LocalDate.now();
 
@@ -29,10 +29,10 @@ public class UI {
         System.out.println("  Press 7 for : Edit a car                          ");
         System.out.println("  Press 8 for : Edit a contract                     ");
         System.out.println("  Press 9 for : Search and book                     ");
-        System.out.println("  Press 10 for: return a car                        ");
-        System.out.println("  Press 11 for: End the program                     ");
+        System.out.println("  Press 10 for: pick-up a car                       ");
+        System.out.println("  Press 11 for: return a car                        ");
+        System.out.println("  Press 12 for: End the program                     ");
 
-        System.out.println("Enter please");
         int choice= scan.nextInt();
         scan.nextLine();
 
@@ -48,7 +48,7 @@ public class UI {
                     System.out.println(c.shortPrint());
                     System.out.println();
                 }
-                hovedMenu(scan, listOfCars, contracts);
+                hovedMenu(scan, listOfCars, contracts,allCustomers);
                 break;
 
             case 2: //done
@@ -63,7 +63,7 @@ public class UI {
                     System.out.println();
                 }
 
-                hovedMenu(scan, listOfCars, contracts);
+                hovedMenu(scan, listOfCars, contracts,allCustomers);
                 break;
 
             case 3: //done
@@ -73,7 +73,7 @@ public class UI {
                     System.out.println();
                 }
 
-                hovedMenu(scan, listOfCars, contracts);
+                hovedMenu(scan, listOfCars, contracts,allCustomers);
                 break;
 
             case 4: //done
@@ -81,7 +81,7 @@ public class UI {
                 listOfCars.add(honolulu.addCar(scan));
                 honolulu.writeToFile(listOfCars);
 
-                hovedMenu(scan, listOfCars, contracts);
+                hovedMenu(scan, listOfCars, contracts,allCustomers);
                 break;
 
             case 5: //done
@@ -108,17 +108,17 @@ public class UI {
 
                 honolulu.writeToFile(listOfCars);
 
-                hovedMenu(scan, listOfCars, contracts);
+                hovedMenu(scan, listOfCars, contracts,allCustomers);
                 break;
 
             case 6: //done
                 System.out.println("you chose option 6: Make a new contract. ");
-                CustomerContract newContract = honolulu.makeContract(scan, listOfCars, contracts);
+                CustomerContract newContract = honolulu.makeContract(scan, listOfCars, contracts,allCustomers);
                 /*for (CustomerContract c:contracts){
                     System.out.println(c.toPrint());
                 }*/
 
-                hovedMenu(scan, listOfCars, contracts);
+                hovedMenu(scan, listOfCars, contracts,allCustomers);
                 break;
 
             case 7: //edit a car
@@ -141,45 +141,60 @@ public class UI {
                 System.out.println("Here is the car after you changed some information:");
                 System.out.println(listOfCars.get(NbEdit-1).toPrint());
 
-                hovedMenu(scan, listOfCars, contracts);
+                hovedMenu(scan, listOfCars, contracts,allCustomers);
                 break;
 
             case 8:
                 System.out.println("you chose option 8: edit a contract. ");
                 System.out.println("this is the list of all the contracts:");
-                int count2=1;
+                //int count2=1;
                 for (CustomerContract c: contracts){
                     System.out.println(c.toPrint());
                     System.out.println();
 
-                    count2++;
+                    //count2++;
                 }
                 System.out.println("Which contract do you want to edit? please enter the number of the contract : ");
-                int ContractEdit=scan.nextInt();
+                int contractEdit=scan.nextInt();
+                CustomerContract contractInQuestion = new CustomerContract();
+                for(CustomerContract c:contracts){
+                    if(c.getContractNumber()==contractEdit){
+                        contractInQuestion = c;
+                        break;
+                    }
+                }
 
                 //CustomerContract customerContractEdit=contracts.get(count2-1);
-                honolulu.editContract(scan, listOfCars ,contracts.get(count2-1), contracts);
+                honolulu.editContract(scan, listOfCars ,contractInQuestion, contracts, allCustomers);
 
-                hovedMenu(scan, listOfCars, contracts);
+                hovedMenu(scan, listOfCars, contracts,allCustomers);
                 break;
 
             case 9: //done
                 System.out.println("you chose option 9: search and book. ");
-                honolulu.searchCar(listOfCars,contracts,scan);
+                honolulu.searchCar(listOfCars,contracts,scan,allCustomers);
 
-                hovedMenu(scan, listOfCars,contracts);
+                hovedMenu(scan, listOfCars,contracts,allCustomers);
                 break;
 
-            case 10: //
-                System.out.println("you chose option 10: return a car. ");
+            case 10: //pick up done
+                System.out.println("you chose option 10: pick up a car. ");
+                honolulu.pickUpCar(scan, contracts, listOfCars, allCustomers);
+                break;
 
-            case 11:
+            case 11: //return
+                System.out.println("You chose option 11: return a car. ");
+                honolulu.returnCar(scan,listOfCars,contracts);
+                break;
+
+
+            case 12:
                 System.exit(0);
                 break;
 
             default:
                 System.out.println("you have entered a wrong number, please try again");
-                hovedMenu(scan, listOfCars, contracts);
+                hovedMenu(scan, listOfCars, contracts,allCustomers);
 
         }//end switch
 

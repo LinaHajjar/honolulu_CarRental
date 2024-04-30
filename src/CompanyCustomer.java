@@ -7,6 +7,37 @@ public class CompanyCustomer extends Customer{
     public CompanyCustomer(){
 
     }
+    public String GetCompanyName(){
+        return companyName;
+    }
+    public String GetCompanyAddress(){
+        return companyAddress;
+    }
+    public String GetCompanyPhoneNb(){
+        return companyPhoneNb;
+    }
+    public String GetCompanyCRN(){
+        return companyCRN;
+    }
+
+    public void setCompanyName(String companyName){
+        this.companyName=companyName;
+    }
+
+    public void setCompanyAddress(String companyAddress){
+        this.companyAddress=companyAddress;
+    }
+
+    public void setCompanyPhoneNb(String companyPhoneNb){
+        this.companyPhoneNb=companyPhoneNb;
+    }
+
+    public void setCompanyCRN(String companyCRN){
+        this.companyCRN=companyCRN;
+    }
+
+
+
 
     public CompanyCustomer(String nameOfDriver, String addressOfDriver, int zipCode, String city, String country, String mobilNr, String email, String companyName, String companyAddress, String companyPhoneNb, String companyCRN){
         super(nameOfDriver, addressOfDriver, zipCode, city, country, mobilNr, email);
@@ -17,7 +48,7 @@ public class CompanyCustomer extends Customer{
     }
 
     public String toString(){
-        return (nameOfDriver + " ; " + addressOfDriver + " ; " + zipCode + " ; " + city + " ; " + country +" ; "+ mobilNr +" ; " + email +" ; "+ companyName+" ; "+ companyAddress +" ; "+companyPhoneNb+ " ; " + companyCRN);
+        return (nameOfDriver + " ; " + addressOfDriver + " ; " + zipCode + " ; " + city + " ; " + country +" ; "+ mobilNr +" ; " + email +" ; "+ companyName+" ; "+ companyAddress +" ; "+companyPhoneNb+ " ; " + companyCRN +" ;");
     }
 
     public String toPrint() {
@@ -27,7 +58,7 @@ public class CompanyCustomer extends Customer{
                 "Zip Code                          : " + zipCode + "\n" +
                 "City                              : " + city + "\n" +
                 "Country                           : " + country + "\n" +
-                "Mobil number                      : " + mobilNr + "\n" +
+                "Mobile number                      : " + mobilNr + "\n" +
                 "E-mail                            : " + email + "\n" +
                 "Name of the company               : " + companyName+ "\n" +
                 "Address of the company            : " + companyAddress+ "\n" +

@@ -27,6 +27,9 @@ public class CustomerContract {
     public Customer getCustomer(){
         return customer;
     }
+    public int getContractNumber(){
+        return contractNumber;
+    }
 
     public String toString(){
         return (contractNumber + " ; " + customer + " ; " + rentalStartDate + " ; " + rentalEndDate + " ; " + car +" ; "+ maxKm +" ; " + odometerAtRentalStartDate);
@@ -62,6 +65,10 @@ public class CustomerContract {
     public Car getCar(){
         return car;
     }
+
+    public int getOdometerAtRentalStartDate(){
+        return odometerAtRentalStartDate;
+    }
     public int duration(){
         Period between = Period.between(rentalStartDate, rentalEndDate);
         int months = between.getMonths();
@@ -82,10 +89,8 @@ public class CustomerContract {
     public void setMaxKm(int maxKm){
         this.maxKm=maxKm;
     }
-
-    public double calculatePrice(){
-        double defaultPrice= 200.0;
-        return (defaultPrice + 100 *duration() );
+    public void setOdometerAtRentalStartDate(int odometerAtRentalStartDate){
+        this.odometerAtRentalStartDate=odometerAtRentalStartDate;
     }
 
 }
