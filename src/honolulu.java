@@ -289,13 +289,18 @@ public class honolulu {
     public static void writeToFileCustomer(ArrayList<Customer>Allcustomers)throws IOException{
 
         FileWriter filewr=new FileWriter(new File("src/Customer"),false);
+        int i =0;
         for(Customer c: Allcustomers){
             if (c instanceof PrivateCustomer){
                 filewr.write(c.toString());
+                i++;
+            }
+            if(i!=0){
+                filewr.write("\n");
             }
         }
 
-        filewr.write("\nCompany Customer\n");
+        filewr.write("Company Customer\n");
         for(Customer c: Allcustomers){
             if (c instanceof CompanyCustomer){
                 filewr.write(c.toString());
@@ -1024,7 +1029,7 @@ do {
                 break;
             }
         }
-        if (k != 0) {
+        if (k == 0) {
             makeContract(scan, listOfCars, contracts, allCustomers);
         } else {
             System.out.println("the odometer on the contract has been updated based on the car's info.");
@@ -1052,32 +1057,53 @@ do {
         contract.getCar().setOdometer(NewOd);
 
         int antaldag=contract.duration();
-        double kmdag=(NewOd-startOdometer)/antaldag;
-        System.out.println(kmdag);
+        System.out.println(antaldag);
+        double kmdag=(((double) NewOd)-startOdometer)/antaldag;
+        System.out.printf("you drove approximately: %.2f km per day.",kmdag);
+        System.out.println();
         double defaultPricePerDay = 200;
         double sum=0.0;
 
         if(kmdag-100>=0){
-            System.out.println(sum+=(kmdag-100)*5);
+            sum+=(kmdag-100)*1.8;
             kmdag=100;
         }
         if(kmdag-50>=0){
-            System.out.println(sum+= (kmdag-50)*4);
+            sum+= (kmdag-50)*1.6;
             kmdag=50;
         }
         if(kmdag-30>=0){
-            System.out.println( sum+= (kmdag-30)*3);
+            sum+= (kmdag-30)*1.4;
             kmdag=30;
         }
         if(kmdag-15>=0){
-            System.out.println(sum+=(kmdag-15)*2);
+            sum+=(kmdag-15)*1.2;
         }
         sum+=kmdag*1;
-        System.out.println(sum *=antaldag);
+        sum =(sum+defaultPricePerDay)*antaldag;
+        System.out.printf("the total sum is: %.2f Kr." , sum);
 
-
-
-
+        /*double intermediateKmDag=kmdag;
+        while(intermediateKmDag>0){
+            if (intermediateKmDag>=100){
+                sum+=(100*5);
+                intermediateKmDag -=100;
+            } else if (intermediateKmDag >= 50) {
+                sum+=((intermediateKmDag-50)*4);
+                intermediateKmDag-= (kmdag-50);
+            } else if (intermediateKmDag>=30) {
+                sum+=((intermediateKmDag-30)*3);
+                intermediateKmDag-= (kmdag-30);
+            } else if (intermediateKmDag>=15) {
+                sum+=((intermediateKmDag-15)*2);
+                intermediateKmDag-= (kmdag-15);
+            } else {
+                sum+=intermediateKmDag*1;
+                intermediateKmDag=0;
+            }
+        }//end while
+        sum+=(antaldag*defaultPricePerDay);
+        System.out.println(sum);*/
 
     }//end return car
 
