@@ -14,19 +14,4 @@ Company Customer
 Lina Al-Hajjar ; unknown Address ; 1234 ; København ; Danmark ; 511123456 ; lina@example.com ;  ABC Logistics ; Industriparken 5 ; 98765432 ; 12345678 ;
 Lasse Otterstrøm ; unknown Address ; 4321 ; København ; Danmark ; 51987654 ; lasse@example.com ; XYZ Enterprises ; Amagerbrogade 30 ; 12345678 ; 98765432 ;
 
-   public double calculatePrice(){
-        double defaultPrice= 200.0;
-        return (defaultPrice + 100 *duration() );
-    }
 
-default price: Dp= 100
-10 dage
-100*10 = 1000;
-15*100=1500;
-10*1,2*10=120;
-2650
-<15 :
-15<=x<30 : 100+(x-15)*1,2
-30<=x<50 :
-50<=x<100 :
->=100:

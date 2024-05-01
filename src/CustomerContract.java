@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 
 public class CustomerContract {
     int contractNumber;
@@ -70,11 +71,8 @@ public class CustomerContract {
         return odometerAtRentalStartDate;
     }
     public int duration(){
-        Period between = Period.between(rentalStartDate, rentalEndDate);
-        int months = between.getMonths();
-        int days =between.getDays();
-        int totalDays= (months * 30) + days;
-        return(totalDays);
+        int between = (int) ChronoUnit.DAYS.between(rentalStartDate, rentalEndDate);
+        return(between+1);
     }
 
     public void setCar(Car car){

@@ -180,11 +180,13 @@ public class UI {
             case 10: //pick up done
                 System.out.println("you chose option 10: pick up a car. ");
                 honolulu.pickUpCar(scan, contracts, listOfCars, allCustomers);
+                hovedMenu(scan, listOfCars,contracts,allCustomers);
                 break;
 
-            case 11: //return
+            case 11: //return done
                 System.out.println("You chose option 11: return a car. ");
                 honolulu.returnCar(scan,listOfCars,contracts);
+                hovedMenu(scan, listOfCars,contracts,allCustomers);
                 break;
 
 
