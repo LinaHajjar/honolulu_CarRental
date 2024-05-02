@@ -48,7 +48,7 @@ public class CompanyCustomer extends Customer{
     }
 
     public String toString(){
-        return (nameOfDriver + " ; " + addressOfDriver + " ; " + zipCode + " ; " + city + " ; " + country +" ; "+ mobilNr +" ; " + email +" ; "+ companyName+" ; "+ companyAddress +" ; "+companyPhoneNb+ " ; " + companyCRN +" ;");
+        return (nameOfDriver + " ; " + addressOfDriver + " ; " + zipCode + " ; " + city + " ; " + country +" ; "+ mobilNr +" ; " + email +" ; "+ companyName+" ; "+ companyAddress +" ; "+companyPhoneNb+ " ; " + companyCRN +" ;\n");
     }
 
     public String toPrint() {
@@ -58,7 +58,7 @@ public class CompanyCustomer extends Customer{
                 "Zip Code                          : " + zipCode + "\n" +
                 "City                              : " + city + "\n" +
                 "Country                           : " + country + "\n" +
-                "Mobile number                      : " + mobilNr + "\n" +
+                "Mobile number                     : " + mobilNr + "\n" +
                 "E-mail                            : " + email + "\n" +
                 "Name of the company               : " + companyName+ "\n" +
                 "Address of the company            : " + companyAddress+ "\n" +

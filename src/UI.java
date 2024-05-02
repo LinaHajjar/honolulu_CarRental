@@ -31,7 +31,8 @@ public class UI {
         System.out.println("  Press 9 for : Search and book                     ");
         System.out.println("  Press 10 for: pick-up a car                       ");
         System.out.println("  Press 11 for: return a car                        ");
-        System.out.println("  Press 12 for: End the program                     ");
+        System.out.println("  Press 12 for: delete a contract                   ");
+        System.out.println("  Press 13 for: End the program                     ");
 
         int choice= scan.nextInt();
         scan.nextLine();
@@ -86,27 +87,7 @@ public class UI {
 
             case 5: //done
                 System.out.println("you chose option 5: delete a car. ");
-                System.out.println("this is the list of all the cars:");
-                int i=1;
-                for (Car c: listOfCars){
-                    System.out.println("Car number " + i + ": \n" + c.toPrint());
-                    System.out.println();
-                    i++;
-                }
-                System.out.println("Please write the brand of the car you want to remove from the list: ");
-                String CarBrandDelete=scan.nextLine();
-                System.out.println("Write now Please write the model of the car you want to remove from the list: ");
-                String CarModelDelete=scan.nextLine();
-                listOfCars.removeIf(car1 -> ((car1.brand.equals(CarBrandDelete)&&(car1.model.equals(CarModelDelete)))));
-                System.out.println("list of the cars after you deleted " + CarBrandDelete+ " : " +CarModelDelete+ " :\n");
-                int j=1;
-                for (Car c: listOfCars) {
-                    System.out.println("Car number " + j + ": \n" +c.toPrint());
-                    System.out.println();
-                    j++;
-                }
-
-                honolulu.writeToFile(listOfCars);
+                honolulu.deleteCar(listOfCars, scan);
 
                 hovedMenu(scan, listOfCars, contracts,allCustomers);
                 break;
@@ -132,9 +113,10 @@ public class UI {
                 }
                 System.out.println("Which car do you want to edit? please enter the number of the car : ");
                 int NbEdit=scan.nextInt();
+                scan.nextLine();
 
                 //Car carToEdit=listOfCars.get(NbEdit-1); = listOfCars.get(NbEdit-1);
-                System.out.println("you chose to edit the following car:\n" + listOfCars.get(NbEdit-1));
+                System.out.println("you chose to edit the following car:\n" + listOfCars.get(NbEdit-1).toPrint());
 
                 honolulu.editCar(scan, listOfCars.get(NbEdit-1));
 
@@ -185,12 +167,25 @@ public class UI {
 
             case 11: //return done
                 System.out.println("You chose option 11: return a car. ");
-                honolulu.returnCar(scan,listOfCars,contracts);
+                honolulu.returnCar(scan,listOfCars,contracts, allCustomers);
                 hovedMenu(scan, listOfCars,contracts,allCustomers);
                 break;
 
+            case 12: //delete contract
+                System.out.println("here is the list of all your contracts, which one do you want to delete?");
+                for(CustomerContract c: contracts){
+                    System.out.println(c.toPrint());
+                    System.out.println();
+                }
+                System.out.println("WRITE the number of the contract you want to remove:");
+                int nbContractRemove=scan.nextInt();
+                scan.nextLine();
+                honolulu.deleteContract(contracts, nbContractRemove,allCustomers);
+                System.out.println("your list of contracts has been updated.");
 
-            case 12:
+                break;
+
+            case 13:
                 System.exit(0);
                 break;
 

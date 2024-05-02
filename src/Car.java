@@ -105,7 +105,21 @@ public class Car {
     }
 
     public String toPrint() {
-        return ("brand                             : " + brand+  "\nmodel                             : " + model +"\nfueltype                          : " + fuelType + "\nRegistration number               : " +registrationNb + "\nFirst registration date           : " + firstRegistrationDate+ "\nodometer                          : " + odometer+ "\nDescription                       : " +Description+  "\nAutomatic transmission            : " + automaticTransmission + "\nAC                                : " + AC + "\nBorrowed                          : " + borrowed + "\nSeats                             : " + seats);
+        String acText ="";
+        if (AC==true){
+            acText= "yes";
+        } else {
+            acText="No";
+        }
+
+        String Aut="";
+        if (automaticTransmission==true){
+            Aut= "yes";
+        }else {
+            Aut="No";
+        }
+
+        return ("brand                             : " + brand+  "\nmodel                             : " + model +"\nfueltype                          : " + fuelType + "\nRegistration number               : " +registrationNb + "\nFirst registration date           : " + firstRegistrationDate+ "\nodometer                          : " + odometer+ "\nDescription                       : " +Description+  "\nAutomatic transmission            : " + Aut + "\nAC                                : " + acText+ "\nSeats                             : " + seats);
     }
 
     public String shortPrint() {

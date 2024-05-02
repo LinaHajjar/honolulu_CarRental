@@ -20,7 +20,7 @@ public class PrivateCustomer extends Customer {
     }
 
     public String toString(){
-        return (nameOfDriver + " ; " + addressOfDriver + " ; " + zipCode + " ; " + city + " ; " + country +" ; "+ mobilNr +" ; " + email +" ; "+ driverslicenceNumber+" ; "+ yearsWithLicence +" ;");
+        return (nameOfDriver + " ; " + addressOfDriver + " ; " + zipCode + " ; " + city + " ; " + country +" ; "+ mobilNr +" ; " + email +" ; "+ driverslicenceNumber+" ; "+ yearsWithLicence +" ;\n");
     }
 
     public void setDriversLicenseNumber(int driverslicenceNumber){
@@ -39,7 +39,7 @@ public class PrivateCustomer extends Customer {
                 "Zip Code                          : "+ zipCode + "\n" +
                 "City                              : " + city + "\n" +
                 "Country                           : "+ country+ "\n" +
-                "Mobile number                      : "+ mobilNr+ "\n" +
+                "Mobile number                     : "+ mobilNr+ "\n" +
                 "E-mail                            : "+ email + "\n" +
                 "Driver's licence number           : "+ driverslicenceNumber+ "\n" +
                 "Years with licence                : " +yearsWithLicence+ "\n");

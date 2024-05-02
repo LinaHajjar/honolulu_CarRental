@@ -36,7 +36,7 @@ public class Customer {
                 "Zip Code                          : "+zipCode + "\n" +
                 "City                              : "+city + "\n" +
                 "Country                           : "+country + "\n" +
-                "Mobile number                      : "+mobilNr + "\n" +
+                "Mobile number                     : "+mobilNr + "\n" +
                 "E-mail                            : "+email + "\n");
     }
 
