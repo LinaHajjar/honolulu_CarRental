@@ -1117,16 +1117,39 @@ public class honolulu {
         try {
             String customerName = scan.nextLine();
             CustomerContract contractExist = new CustomerContract();
+            ArrayList<CustomerContract>matches = new ArrayList<>();
             int k = 0;
             for (CustomerContract c : contracts) {
                 if (honolulu.containsIgnoreCase(c.getCustomer().getNameOfDriver(), customerName)) {
-                    contractExist = c;
-                    System.out.println("Match found: ");
-                    System.out.println(c.toPrint());
+                    matches.add(c);
+                    //contractExist = c;
                     k++;
-                    break;
                 }
             }
+            if(k==1){
+                System.out.println("Match found:");
+                System.out.println(matches.getFirst().toPrint());
+                contractExist=matches.getFirst();
+            }
+            else if(k>1){
+                System.out.println("Matches found:");
+                for(CustomerContract c:matches){
+                    System.out.println(c.toPrint());
+                }
+                System.out.println("Enter the contract number of the corresponding contract");
+                int contractNumber = scan.nextInt();
+                if(contractNumber<1 || contractNumber>(makeContractNumber(matches)-1)){
+                    System.out.println("No such contractnumber exists");
+                }
+                for(CustomerContract c:matches){
+                    if(c.getContractNumber()==contractNumber){
+                        contractExist=c;
+                        break;
+                    }
+                }
+
+            }
+
             if (k == 0) {
                 makeContract(scan, listOfCars, contracts, allCustomers);
             } else {
@@ -1135,6 +1158,10 @@ public class honolulu {
             }
         }catch(InputMismatchException e){
             System.out.println("Follow the given instructions when entering data");
+            pickUpCar(scan, contracts,listOfCars, allCustomers);
+        }
+        catch(NullPointerException n){
+            System.out.println("Error with entered data.");
             pickUpCar(scan, contracts,listOfCars, allCustomers);
         }
 
@@ -1257,6 +1284,7 @@ public class honolulu {
             }
         }catch(InputMismatchException e){
             System.out.println("Follow the given instructions when entering data");
+            scan.nextLine();
             deleteCar(listOfCars, scan);
         }
     }//end deleteCar

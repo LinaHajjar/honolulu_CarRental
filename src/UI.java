@@ -38,12 +38,7 @@ public class UI {
 try{
     choice = scan.nextInt();
     scan.nextLine();
-}catch (InputMismatchException e){
-    System.out.println("Wrong input, choose a number between 1 and 13");
-    scan.nextLine();
-    hovedMenu(scan, listOfCars, contracts,allCustomers);
-    return;
-}
+
 
         switch (choice){
             case 1: //done
@@ -203,6 +198,12 @@ try{
 
         }//end switch
 
+    }catch (InputMismatchException e){
+        System.out.println("Wrong input, choose a number between 1 and 13");
+        scan.nextLine();
+        hovedMenu(scan, listOfCars, contracts,allCustomers);
+    return;
+    }
     }//end of HovedMenu
 
 }
