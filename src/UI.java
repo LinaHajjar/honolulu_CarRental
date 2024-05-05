@@ -31,9 +31,9 @@ public class UI {
     System.out.println("  Press 7 for : Edit a car                          ");
     System.out.println("  Press 8 for : Edit a contract                     ");
     System.out.println("  Press 9 for : Search and book                     ");
-    System.out.println("  Press 10 for: pick-up a car                       ");
-    System.out.println("  Press 11 for: return a car                        ");
-    System.out.println("  Press 12 for: delete a contract                   ");
+    System.out.println("  Press 10 for: Pick-up a car                       ");
+    System.out.println("  Press 11 for: Return a car                        ");
+    System.out.println("  Press 12 for: Delete a contract                   ");
     System.out.println("  Press 13 for: End the program                     ");
 try{
     choice = scan.nextInt();
