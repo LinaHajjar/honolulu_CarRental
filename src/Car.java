@@ -123,7 +123,20 @@ public class Car {
     }
 
     public String shortPrint() {
-        return ("Brand                             : " + brand+  "\nModel                             : " + model +"\nFueltype                          : " + fuelType + "\nDescription                       : " +Description+  "\nAutomatic transmission            : " + automaticTransmission + "\nAC                                : " + AC + "\nSeats                             : " + seats);
+        String acText ="";
+        if (AC==true){
+            acText= "yes";
+        } else {
+            acText="No";
+        }
+
+        String Aut="";
+        if (automaticTransmission==true){
+            Aut= "yes";
+        }else {
+            Aut="No";
+        }
+        return ("Brand                             : " + brand+  "\nModel                             : " + model +"\nFueltype                          : " + fuelType + "\nDescription                       : " +Description+  "\nAutomatic transmission            : " + Aut + "\nAC                                : " + acText + "\nSeats                             : " + seats);
     }
 
 }

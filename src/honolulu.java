@@ -785,6 +785,7 @@ public class honolulu {
             }
         }catch(InputMismatchException e){
             System.out.println("Follow the instructions on entering data");
+            scan.nextLine();
             searchCar(listOfCars,contracts,scan,allCustomers);
         }catch(DateTimeParseException h){
             System.out.println("Follow the instructions on entering dates, year-month-day");
