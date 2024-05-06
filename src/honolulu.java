@@ -14,6 +14,7 @@ public class honolulu {
         Scanner input = new Scanner(System.in);
         Scanner readFileContract = new Scanner(new File("src/Contracts"));
         ArrayList<Car> listOfCars = readFromFile(scan);
+        Collections.sort(listOfCars, new ComparableBrand());
         ArrayList<Customer> customers = readFromFileCustomers();
         ArrayList<CustomerContract> contracts = readFromFileContracts(readFileContract, customers, listOfCars);
 
