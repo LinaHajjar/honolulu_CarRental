@@ -1,7 +1,7 @@
 John Doe ; 123 Main St ; 12345 ; Anytown ; USA ; 123456789 ; john.doe@example.com ; 123456 ; 3467 ;
 Jane Smith ; 456 Elm St ; 54321 ; Anycity ; USA ; 987654321 ; jane.smith@example.com ; 654321 ; 5702 ;
 Michael Johnson ; 789 Oak St ; 67890 ; Anystate ; USA ; 555666777 ; michael.johnson@example.com ; 987654 ; 1298 ;
-Emily Brown ; 101 Maple St ; 09876 ; Anothercity ; USA ; 444333222 ; emily.brown@example.com ; 543210 ; 8654 ;
+Emily Brown ; 101 Maple St ; 9876 ; Anothercity ; USA ; 444333222 ; emily.brown@example.com ; 543210 ; 8654 ;
 David Lee ; 321 Pine St ; 56789 ; Yetanothercity ; USA ; 999888777 ; david.lee@example.com ; 678901 ; 4301 ;
 Sarah Wilson ; 555 Cedar St ; 98765 ; Lastcity ; USA ; 111222333 ; sarah.wilson@example.com ; 345678 ; 7723 ;
 Christopher Martinez ; 777 Birch St ; 54321 ; Finalcity ; USA ; 666777888 ; christopher.martinez@example.com ; 901234 ; 2165 ;
@@ -23,3 +23,5 @@ Brandon Scott ; 555 Orange St ; 22222 ; Examplecity ; USA ; 555111888 ; brandon.
 Megan Taylor ; 666 Grape St ; 11111 ; Anothercity ; USA ; 777444111 ; megan.taylor@example.com ; 567890 ; 7164 ;
 Patrick Martinez ; 777 Apple St ; 88888 ; Finalcity ; USA ; 999666333 ; patrick.martinez@example.com ; 901234 ; 9308 ;
 Samantha White ; 888 Peach St ; 77777 ; Yetanothercity ; USA ; 888555222 ; samantha.white@example.com ; 567890 ; 2479 ;
+Company Customer
+End Of File

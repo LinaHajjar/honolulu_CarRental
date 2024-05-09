@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Objects;
@@ -43,24 +44,37 @@ try{
         switch (choice){
             case 1: //done
                 System.out.println("You chose option 1: See the list of available cars. ");
-                System.out.println("Please enter the start date of the period you want to rent a car\nUse the format year-month-date");
-                startDate=LocalDate.parse(scan.nextLine());
-                System.out.println("Please enter end date for the rental period");
-                endDate=LocalDate.parse(scan.nextLine());
-                ArrayList<Car>availableCars = (honolulu.availableCars(listOfCars,startDate,endDate,contracts));
-                for(Car c: availableCars){
-                    System.out.println(c.shortPrint());
-                    System.out.println();
-                }
+                try {
+                    System.out.println("Please enter the start date of the period you want to rent a car\nUse the format year-month-date");
+                    startDate = LocalDate.parse(scan.nextLine());
+                    System.out.println("Please enter end date for the rental period");
+                    endDate = LocalDate.parse(scan.nextLine());
+                    }catch (DateTimeParseException e){
+                        System.out.println("Wrong input, returning to Main menu");
+                        hovedMenu(scan, listOfCars, contracts,allCustomers);
+                        return;
+                    }
+                    ArrayList<Car> availableCars = (honolulu.availableCars(listOfCars, startDate, endDate, contracts));
+                    for (Car c : availableCars) {
+                        System.out.println(c.shortPrint());
+                        System.out.println();
+                    }
+
                 hovedMenu(scan, listOfCars, contracts,allCustomers);
                 break;
 
             case 2: //done
                 System.out.println("You chose option 2: See the list of borrowed cars. ");
+                try{
                 System.out.println("Enter the start date of the period you want to see unavailable cars for\nUse the format year-month-date");
                 startDate=LocalDate.parse(scan.nextLine());
                 System.out.println("Enter the end date for the rental period");
                 endDate=LocalDate.parse(scan.nextLine());
+                }catch (DateTimeParseException e){
+                    System.out.println("Wrong input, returning to Main menu");
+                    hovedMenu(scan, listOfCars, contracts,allCustomers);
+                    return;
+                }
                 ArrayList<Car>unavailableCars = (honolulu.unavailableCars(listOfCars,startDate,endDate,contracts));
                 for(Car c: unavailableCars){
                     System.out.println(c.shortPrint());
